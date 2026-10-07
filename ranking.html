@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>ランキング</title>
+        <meta charset="utf-8">
+    </head>
+    <body id="content">
+
+    </body>
+    <script>
+        async function ranking_get(){
+            await fetch("https://script.google.com/macros/s/AKfycbw2B5XZGTt90auW0d9Z_50qukCmcGyasME0ipnUYTbFFLNDgmQqOzXbGsPEP8lqaWwn6w/exec")
+            .then(response=>{
+                response.text().then(text=>{
+                    document.getElementById("content").innerHTML=text;
+                })
+            });
+        }
+        async function add_score() {
+            await fetch("https://script.google.com/macros/s/AKfycbw2B5XZGTt90auW0d9Z_50qukCmcGyasME0ipnUYTbFFLNDgmQqOzXbGsPEP8lqaWwn6w/exec",{
+                method:"POST",
+                headers:{
+                    "Content-Type":"text/plain"
+                },
+                body:"100,user"
+            });
+        }
+        ranking_get();
+        add_score();
+    </script>
+</html>
