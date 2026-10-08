@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>ランキング</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="ranking.css">
+    </head>
+    <body id="content">
+    </body>
+    <script>
+        function generate_rank_node(data){
+            node=`
+                <div class="rank_node">
+                    <div>
+                        ${data["rank"]}
+                    </div>
+                    <div>
+                        ${data["name"]}
+                    </div>
+                    <div>
+                        ${data["score"]}
+                    </div>
+                </div>
+            `;
+            document.getElementById("content").innerHTML+=node;
+        }
+
+        async function ranking_get(){
+            data=await (await fetch("https://script.google.com/macros/s/AKfycbw2B5XZGTt90auW0d9Z_50qukCmcGyasME0ipnUYTbFFLNDgmQqOzXbGsPEP8lqaWwn6w/exec")).json();
+            return data;
+        }
+        async function add_score(name,score) {
+            data=await (await fetch("https://script.google.com/macros/s/AKfycbw2B5XZGTt90auW0d9Z_50qukCmcGyasME0ipnUYTbFFLNDgmQqOzXbGsPEP8lqaWwn6w/exec",{
+                "method":"POST",
+                "headers":{
+                    "Accept": "text/plain",
+                    "Content-Type":"text/plain"
+                },
+                "body":JSON.stringify({"score":score,"name":name})
+            })).json();
+        }
+        ranking_get().then(ranking=>{
+            for(data of ranking){
+                generate_rank_node(data);
+            }
+        });
+    </script>
+</html>
