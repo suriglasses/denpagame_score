@@ -3,32 +3,46 @@
     <head>
         <title>ランキング</title>
         <meta charset="utf-8">
+        <link rel="stylesheet" href="../common.css">
         <link rel="stylesheet" href="ranking.css">
     </head>
-    <body id="content">
+    <body>
+        <div id="main_content">
+        </div>
     </body>
     <script>
-        function generate_rank_node(data){
+        function generate_rank_node(data,focus){
+            node_id=""
+            if(focus==true){
+                node_id="id=\"focus_node\""
+            }
             node=`
-                <div class="rank_node">
-                    <div>
-                        ${data["rank"]}
+                <div class="rank_node" ${node_id}>
+                    <div class="rank">
+                        <div>
+                            ${data["rank"]}
+                        </div>
                     </div>
-                    <div>
-                        ${data["name"]}
+                    <div class="name">
+                        <div>
+                            ${data["name"]}
+                        </div>
                     </div>
-                    <div>
-                        ${data["score"]}
+                    <div class="score">
+                        <div>
+                            ${data["score"]}
+                        </div>
                     </div>
                 </div>
             `;
-            document.getElementById("content").innerHTML+=node;
+            document.getElementById("main_content").innerHTML+=node;
         }
 
         async function ranking_get(){
             data=await (await fetch("https://script.google.com/macros/s/AKfycbw2B5XZGTt90auW0d9Z_50qukCmcGyasME0ipnUYTbFFLNDgmQqOzXbGsPEP8lqaWwn6w/exec")).json();
             return data;
         }
+
         async function add_score(name,score) {
             data=await (await fetch("https://script.google.com/macros/s/AKfycbw2B5XZGTt90auW0d9Z_50qukCmcGyasME0ipnUYTbFFLNDgmQqOzXbGsPEP8lqaWwn6w/exec",{
                 "method":"POST",
@@ -39,9 +53,22 @@
                 "body":JSON.stringify({"score":score,"name":name})
             })).json();
         }
+
+        query=new URLSearchParams(window.location.search);
         ranking_get().then(ranking=>{
             for(data of ranking){
-                generate_rank_node(data);
+                focus=false;
+                if(data["name"]==query.get("name")){
+                    focus=true;
+                }
+                generate_rank_node(data,focus);
+            }
+            //画面中央へスクロール
+            focus_node=document.getElementById("focus_node");
+            if(focus_node!=null){
+                console.log(focus_node.scrollTop)
+                focus_node.scrollIntoView({"behavior":"smooth","block":"center"});
+                focus_node.classList.add("in_window");
             }
         });
     </script>

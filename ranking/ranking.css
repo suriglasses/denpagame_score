@@ -1,3 +1,7 @@
+#main_content{
+    width: 100%;
+}
+
 .rank_node{
     width: 100%;
     display: flex;
@@ -6,6 +10,33 @@
     &>*{
         padding: 0;
         align-content: center;
+        justify-items: right;
         height: 2rem;
     }
+
+    &>.rank{
+        justify-items: center;
+        width: 2rem;
+    }
+
+    &>.score{
+        width: 5rem;
+        padding-right: 0.5rem;
+    }
+
+    &>.name{
+        flex: auto;
+        padding-right: 0.5rem;
+        overflow-wrap: break-word;
+    }
+}
+
+#focus_node{
+    background-color: wheat;
+}
+
+.in_window{
+    position: sticky;
+    top: 0;
+    bottom: 0;
 }
