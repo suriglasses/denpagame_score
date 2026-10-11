@@ -6,22 +6,25 @@
     width: 100%;
     display: flex;
     justify-content: space-between;
+    align-items: center;
 
     &>*{
-        padding: 0;
+        padding: 0.5rem;
         align-content: center;
         justify-items: right;
-        height: 2rem;
+        height: max-content;
+        flex-shrink: 0;
     }
 
     &>.rank{
+        padding: 0;
         justify-items: center;
         width: 2rem;
+        height: 2rem;
     }
 
     &>.score{
         width: 5rem;
-        padding-right: 0.5rem;
     }
 
     &>.name{
