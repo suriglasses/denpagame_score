@@ -16,7 +16,6 @@
     &>*{
         padding: 0.5rem;
         align-content: center;
-        justify-items: right;
         height: max-content;
         flex-shrink: 0;
     }
@@ -30,6 +29,7 @@
 
     &>.score{
         width: 5rem;
+        justify-items: right;
     }
 
     &>.name{
