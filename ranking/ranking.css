@@ -7,6 +7,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background: linear-gradient(lightgray,gray);
 
     &>*{
         padding: 0.5rem;
@@ -35,6 +36,7 @@
 }
 
 #focus_node{
+    background: linear-gradient(wheat,gray);
     background-color: wheat;
 }
 
