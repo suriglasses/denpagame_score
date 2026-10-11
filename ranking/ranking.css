@@ -1,3 +1,7 @@
+:root{
+    scrollbar-width: none;
+}
+
 #main_content{
     width: 100%;
 }
@@ -30,8 +34,11 @@
 
     &>.name{
         flex: auto;
+        display: flex;
         padding-right: 0.5rem;
-        overflow-wrap: break-word;
+        text-wrap: nowrap;
+        overflow-x: auto;
+        scrollbar-width: none;
     }
 }
 
