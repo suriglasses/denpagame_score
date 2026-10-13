@@ -1,0 +1,25 @@
+body{
+    margin: 0;
+}
+
+.phone_visible{
+    display: block;
+}
+
+.pc_visible{
+    display: none;
+}
+
+iframe{
+    display: block;
+}
+
+@media screen and (width >= 900px) {
+    .phone_visible{
+        display: none;
+    }
+
+    .pc_visible{
+        display: block;
+    }
+}

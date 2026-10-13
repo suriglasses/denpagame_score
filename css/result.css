@@ -1,0 +1,37 @@
+:root{
+    --ranking-margin: 2rem;
+    --score-width: 15rem;
+    --score-height: 15rem;
+    --button-area-height: 2rem;
+}
+
+#ranking{
+    margin: var(--ranking-margin);
+    margin-bottom: 0;
+    border: 0;
+    width: stretch;
+    height: calc(100vh - var(--score-height) - var(--button-area-height) - var(--ranking-margin));
+}
+
+#score{
+    height: var(--score-height);
+}
+
+.button_area{
+    height: var(--button-area-height);
+}
+
+@media screen and (width >= 900px) {
+    #main_content{
+        display: flex;
+    }
+
+    #score{
+        width: var(--score-width);
+    }
+
+    #ranking{
+        margin-bottom: var(--ranking-margin);
+        height: calc(100vh - 2 * var(--ranking-margin));
+    }
+}

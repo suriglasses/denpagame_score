@@ -4,8 +4,9 @@
         <title>ランキング</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="../common/common.css">
+        <link rel="stylesheet" href="css/common.css">
         <link rel="stylesheet" href="ranking.css">
+        <link rel="icon" href="img/favicon.ico">
     </head>
     <body>
         <div id="main_content">
@@ -39,24 +40,33 @@
             document.getElementById("main_content").innerHTML+=node;
         }
 
-        async function ranking_get(){
-            data=await (await fetch("https://script.google.com/macros/s/AKfycbw2B5XZGTt90auW0d9Z_50qukCmcGyasME0ipnUYTbFFLNDgmQqOzXbGsPEP8lqaWwn6w/exec")).json();
+        async function ranking_get(date){
+            console.log(date)
+            link="https://script.google.com/macros/s/AKfycbw2B5XZGTt90auW0d9Z_50qukCmcGyasME0ipnUYTbFFLNDgmQqOzXbGsPEP8lqaWwn6w/exec";
+            if(date!=null){
+                link+=`?date=${date}`;
+            }
+            console.log(link);
+            data=await (await fetch(link)).json();
             return data;
         }
 
-        async function add_score(name,score) {
+        async function add_score(name,score,date) {
             data=await (await fetch("https://script.google.com/macros/s/AKfycbw2B5XZGTt90auW0d9Z_50qukCmcGyasME0ipnUYTbFFLNDgmQqOzXbGsPEP8lqaWwn6w/exec",{
                 "method":"POST",
                 "headers":{
                     "Accept": "text/plain",
                     "Content-Type":"text/plain"
                 },
-                "body":JSON.stringify({"score":score,"name":name})
+                "body":JSON.stringify({"score":score,"name":name,"date":date})
             })).json();
         }
 
         query=new URLSearchParams(window.location.search);
-        ranking_get().then(ranking=>{
+        ranking_get(query.get("date")).then(ranking=>{
+            if(ranking["error"]!=null){
+                document.getElementById("main_content").innerHTML="エラーが発生しました。"
+            }
             for(data of ranking){
                 focus=false;
                 if(data["name"]==query.get("name")){
