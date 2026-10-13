@@ -41,12 +41,10 @@
         }
 
         async function ranking_get(date){
-            console.log(date)
             link="https://script.google.com/macros/s/AKfycbw2B5XZGTt90auW0d9Z_50qukCmcGyasME0ipnUYTbFFLNDgmQqOzXbGsPEP8lqaWwn6w/exec";
             if(date!=null){
                 link+=`?date=${date}`;
             }
-            console.log(link);
             data=await (await fetch(link)).json();
             return data;
         }
@@ -77,7 +75,6 @@
             //画面中央へスクロール
             focus_node=document.getElementById("focus_node");
             if(focus_node!=null){
-                console.log(focus_node.scrollTop)
                 focus_node.scrollIntoView({"behavior":"smooth","block":"center"});
                 focus_node.classList.add("in_window");
             }
