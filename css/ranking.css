@@ -1,5 +1,6 @@
 :root{
-    scrollbar-width: none;
+    overflow-y: scroll;
+    background-color: antiquewhite;
 }
 
 #main_content{
