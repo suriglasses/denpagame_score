@@ -6,8 +6,5 @@
     margin: var(--ranking-margin);
     border: 0;
     width: stretch;
-    height: calc(100vh - 2 * var(--ranking-margin));
-}
-
-@media screen and (width >= 900px) {
+    height: calc(100dvh - 2 * var(--ranking-margin));
 }

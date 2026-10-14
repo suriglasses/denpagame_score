@@ -10,7 +10,7 @@
     margin-bottom: 0;
     border: 0;
     width: stretch;
-    height: calc(100vh - var(--score-height) - var(--button-area-height) - var(--ranking-margin));
+    height: calc(100dvh - var(--score-height) - var(--button-area-height) - var(--ranking-margin));
 }
 
 #score{
@@ -32,6 +32,6 @@
 
     #ranking{
         margin-bottom: var(--ranking-margin);
-        height: calc(100vh - 2 * var(--ranking-margin));
+        height: calc(100dvh - 2 * var(--ranking-margin));
     }
 }
