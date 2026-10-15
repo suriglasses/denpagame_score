@@ -65,7 +65,7 @@
             if(ranking["error"]!=null){
                 document.getElementById("main_content").innerHTML="エラーが発生しました。"
             }
-            for(data of ranking){
+            for(data of ranking["value"]){
                 focus=false;
                 if(data["name"]==query.get("name")){
                     focus=true;
