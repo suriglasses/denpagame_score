@@ -5,6 +5,16 @@
 
 #main_content{
     width: 100%;
+    min-height: 100dvh;
+
+    &:has(#loading_message){
+        display: flex;
+        justify-content: center;
+    }
+}
+
+#loading_message{
+    align-self: center;
 }
 
 .rank_node{

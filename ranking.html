@@ -10,6 +10,10 @@
     </head>
     <body>
         <div id="main_content">
+            <h1 id="loading_message">
+                読み込み中...<br>
+                少々お待ちください。
+            </h1>
         </div>
     </body>
     <script>
@@ -62,6 +66,7 @@
 
         query=new URLSearchParams(window.location.search);
         ranking_get(query.get("date")).then(ranking=>{
+            document.getElementById("main_content").innerHTML="";
             if(ranking["error"]!=null){
                 document.getElementById("main_content").innerHTML="エラーが発生しました。"
             }
