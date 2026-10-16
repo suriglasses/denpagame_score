@@ -1,24 +1,31 @@
 :root{
     --ranking-margin: 2rem;
-    --score-width: 15rem;
-    --score-height: 15rem;
-    --button-area-height: 2rem;
+    --score-area-width: 15rem;
+    --score-area-height: 15rem;
+    --score-area-margin: 2rem;
+    --button-area-height: 3rem;
 }
 
 #ranking{
     margin: var(--ranking-margin);
+    margin-top: 0;
     margin-bottom: 0;
     border: 0;
     width: stretch;
-    height: calc(100dvh - var(--score-height) - var(--button-area-height) - var(--ranking-margin));
+    height: calc(100dvh - var(--score-area-height) - 2 * var(--score-area-margin) - var(--button-area-height) - var(--header-size));
 }
 
 #score{
-    height: var(--score-height);
+    height: var(--score-area-height);
+    margin: var(--score-area-margin);
 }
 
 .button_area{
     height: var(--button-area-height);
+
+    &>*{
+        margin: 0.5rem;
+    }
 }
 
 @media screen and (width >= 900px) {
@@ -27,11 +34,12 @@
     }
 
     #score{
-        width: var(--score-width);
+        width: var(--score-area-width);
     }
 
     #ranking{
+        margin-top: var(--ranking-margin);
         margin-bottom: var(--ranking-margin);
-        height: calc(100dvh - 2 * var(--ranking-margin));
+        height: calc(100dvh - 2 * var(--ranking-margin) - var(--header-size));
     }
 }

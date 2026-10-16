@@ -9,9 +9,13 @@
         <title id="title">スコア</title>
     </head>
     <body>
+        <div id="header">
+        </div>
         <div id="main_content">
-            <div id="score">
-                test
+            <div>
+                <div id="score">
+                    <img class="roundel">
+                </div>
                 <div class="pc_visible button_area">
                     post
                 </div>
@@ -26,4 +30,5 @@
         query=new URLSearchParams(window.location.search);
         document.getElementById("ranking").src=`ranking.html?name=${query.get("name")}&date=${query.get("date")}`
     </script>
+    <script src="js/common.js"></script>
 </html>

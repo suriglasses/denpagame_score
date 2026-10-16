@@ -1,5 +1,24 @@
+:root{
+    --header-size: 4rem;
+}
+
 body{
     margin: 0;
+}
+
+#header{
+    width: 100%;
+    height: var(--header-size);
+    background-color: black;
+
+    *{
+        display: block;
+    }
+
+    &>img{
+        height: 100%;
+        justify-self: center;
+    }
 }
 
 .phone_visible{
@@ -15,6 +34,9 @@ iframe{
 }
 
 @media screen and (width >= 900px) {
+    :root{
+        --header-size: 5rem;
+    }
     .phone_visible{
         display: none;
     }

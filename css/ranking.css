@@ -15,6 +15,9 @@
 
 #loading_message{
     align-self: center;
+    text-align: center;
+    text-wrap: nowrap;
+    font-size: 1.5rem;
 }
 
 .rank_node{

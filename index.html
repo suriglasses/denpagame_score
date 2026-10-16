@@ -9,6 +9,8 @@
         <title id="title">全体のランキング</title>
     </head>
     <body>
+        <div id="header">
+        </div>
         <div id="main_content">
             <iframe id="ranking"></iframe>
         </div>
@@ -17,4 +19,5 @@
         query=new URLSearchParams(window.location.search);
         document.getElementById("ranking").src=`ranking.html?name=${query.get("name")}`
     </script>
+    <script src="js/common.js"></script>
 </html>
