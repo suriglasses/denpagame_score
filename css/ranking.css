@@ -1,6 +1,8 @@
 :root{
     overflow-y: scroll;
     background-color: antiquewhite;
+    background-image: none;
+    --nomal-font-size: 1rem;
 }
 
 body{
@@ -70,3 +72,17 @@ body{
     top: 0;
     bottom: 0;
 }
+
+@media screen and (width >= 900px) {
+    :root{
+        --header-size: 5rem;
+    }
+    .phone_visible{
+        display: none;
+    }
+
+    .pc_visible{
+        display: block;
+    }
+}
+
