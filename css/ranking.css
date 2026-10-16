@@ -3,6 +3,10 @@
     background-color: antiquewhite;
 }
 
+body{
+    margin: 0;
+}
+
 #main_content{
     width: 100%;
     min-height: 100dvh;

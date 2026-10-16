@@ -1,5 +1,6 @@
 :root{
     --header-size: 4rem;
+    background-image: url("../img/background.jpg");
 }
 
 body{
