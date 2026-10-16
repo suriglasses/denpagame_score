@@ -1,6 +1,6 @@
 :root{
     --ranking-margin: 2rem;
-    --score-area-width: 15rem;
+    --score-area-width: 20rem;
     --score-area-height: 15rem;
     --score-area-margin: 2rem;
     --button-area-height: 3rem;
@@ -16,8 +16,20 @@
 }
 
 #score{
+    position: relative;
     height: var(--score-area-height);
     margin: var(--score-area-margin);
+    padding-left: 4.5rem;
+    background-color: beige;
+
+    &>.roundel{
+        display: block;
+        height: 4rem;
+        width: 4rem;
+        position: absolute;
+        top: -1rem;
+        left: -1rem;
+    }
 }
 
 .button_area{
@@ -35,6 +47,12 @@
 
     #score{
         width: var(--score-area-width);
+        margin-right: 0;
+
+        &>.roundel{
+            width: 5rem;
+            height: 5rem;
+        }
     }
 
     #ranking{

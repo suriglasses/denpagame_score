@@ -69,13 +69,14 @@
             document.getElementById("main_content").innerHTML="";
             if(ranking["error"]!=null){
                 document.getElementById("main_content").innerHTML="エラーが発生しました。"
-            }
-            for(data of ranking["value"]){
-                focus=false;
-                if(data["name"]==query.get("name")){
-                    focus=true;
+            }else{
+                for(data of ranking["value"]){
+                    focus=false;
+                    if(data["name"]==query.get("name")){
+                        focus=true;
+                    }
+                    generate_rank_node(data,focus);
                 }
-                generate_rank_node(data,focus);
             }
             //画面中央へスクロール
             focus_node=document.getElementById("focus_node");
