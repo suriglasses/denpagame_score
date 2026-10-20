@@ -41,7 +41,8 @@ body{
     background: linear-gradient(var(--base-color), var(--light-color) 10%,var(--base-color) 15%,var(--base-color) 90%,var(--shadow-color));
 
     &>*{
-        padding: 0.5rem;
+        padding-right: 0.5rem;
+        padding-left: 0.5rem;
         align-content: center;
         height: max-content;
         flex-shrink: 0;
@@ -50,7 +51,7 @@ body{
     &>.rank{
         padding: 0;
         justify-items: center;
-        width: 2rem;
+        width: 3rem;
         height: 2rem;
     }
 

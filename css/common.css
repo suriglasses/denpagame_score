@@ -1,20 +1,21 @@
 @font-face {
-    font-family: "Airborne";
-    src: url(../font/Airborne.ttf.woff) format("woff");
+    font-family: "DSEG7Classic-Bold";
+    src: url(../font/DSEG/DSEG7Classic-Bold.woff2) format("woff2");
 }
 
 @font-face {
-    font-family: "SoukouMincho";
-    src: url(../font/OFL/SoukouMincho.ttf) format("ttf");
+    font-family: "Makinas-4-Square";
+    src: url(../font/makinas4/Makinas-4-Square.otf) format("opentype");
 }
 
 :root{
     --header-size: 4rem;
     background-image: url("../img/background.jpg");
+    font-family: "Makinas-4-Square", "DSEG7Classic-Bold";
 }
 
-*{
-    font-family: "Airborne","SoukouMincho";
+*.num_font{
+    font-family: "DSEG7Classic-Bold";
 }
 
 body{
