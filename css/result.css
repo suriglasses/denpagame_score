@@ -6,6 +6,10 @@
     --button-area-height: 3rem;
 }
 
+*:has(#ranking){
+    width: stretch;
+}
+
 #ranking{
     margin: var(--ranking-margin);
     margin-top: 0;
