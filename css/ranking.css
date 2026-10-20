@@ -35,7 +35,10 @@ body{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: linear-gradient(lightgray,gray);
+    --base-color: rgb(180, 180, 180);
+    --shadow-color: rgb(60, 60, 60);
+    --light-color: rgb(240,240,240);
+    background: linear-gradient(var(--base-color), var(--light-color) 10%,var(--base-color) 15%,var(--base-color) 90%,var(--shadow-color));
 
     &>*{
         padding: 0.5rem;
@@ -67,8 +70,10 @@ body{
 }
 
 #focus_node{
-    background: linear-gradient(wheat,gray);
-    background-color: wheat;
+    --base-color: rgb(190,40,10);
+    --shadow-color: rgb(60, 0, 0);
+    --light-color: rgb(240,60,20);
+    color: white;
 }
 
 .in_window{

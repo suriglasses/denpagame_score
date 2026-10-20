@@ -17,7 +17,7 @@
     </body>
     <script>
         query=new URLSearchParams(window.location.search);
-        document.getElementById("ranking").src=`ranking.html?name=${query.get("name")}`
+        document.getElementById("ranking").src=`ranking.html?name=${query.get("name")}&score=${query.get("score")}`
     </script>
     <script src="js/common.js"></script>
 </html>
