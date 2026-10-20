@@ -1,6 +1,20 @@
+@font-face {
+    font-family: "Airborne";
+    src: url(../font/Airborne.ttf.woff) format("woff");
+}
+
+@font-face {
+    font-family: "SoukouMincho";
+    src: url(../font/OFL/SoukouMincho.ttf) format("ttf");
+}
+
 :root{
     --header-size: 4rem;
     background-image: url("../img/background.jpg");
+}
+
+*{
+    font-family: "Airborne","SoukouMincho";
 }
 
 body{
@@ -44,5 +58,11 @@ iframe{
 
     .pc_visible{
         display: block;
+    }
+
+    #main_content{
+        max-width: 1000px;
+        width: stretch;
+        justify-self: center;
     }
 }
