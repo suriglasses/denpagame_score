@@ -22,7 +22,9 @@
                 <div class="pc_visible button_area">
                 </div>
             </div>
-            <iframe id="ranking"></iframe>
+            <div>
+                <iframe id="ranking"></iframe>
+            </div>
             <div class="phone_visible button_area">
             </div>
         </div>
@@ -65,7 +67,7 @@
         for (area of button_content) {
             area.innerHTML=`
                 <div>
-                    <a href="index.html" class="to_ranking">
+                    <a href="index.html?name=${user_name}&score=${score}" class="to_ranking">
                         <div>
                             全体のランキング
                         </div>
