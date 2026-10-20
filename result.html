@@ -13,23 +13,70 @@
         </div>
         <div id="main_content">
             <div>
-                <div id="score">
+                <div id="score_area">
                     <img class="roundel" src="img/roundel.png">
-                    score: test
+                    <div id="score">
+                        test
+                    </div>
                 </div>
                 <div class="pc_visible button_area">
-                    post
                 </div>
             </div>
             <iframe id="ranking"></iframe>
             <div class="phone_visible button_area">
-                post
             </div>
         </div>
     </body>
     <script>
         query=new URLSearchParams(window.location.search);
-        document.getElementById("ranking").src=`ranking.html?name=${query.get("name")}&date=${query.get("date")}`
+        link="ranking.html";
+        first=true;
+        date=query.get("date");
+        if(date!=null){
+            first=false;
+            link+=`?date=${date}`
+        }
+        user_name=query.get("name");
+        if(user_name!=null){
+            if(first){
+                first=false;
+                link+="?"
+            }else{
+                link+="&"
+            }
+            link+=`name=${user_name}`;
+        }
+        score=query.get("score");
+        if(score!=null){
+            if(first){
+                first=false;
+                link+="?"
+            }else{
+                link+="&"
+            }
+            link+=`score=${score}`;
+        }
+        document.getElementById("score").innerHTML=`name: ${user_name}<br>score: ${score}`
+        document.getElementById("ranking").src=link;
+        button_content=document.getElementsByClassName("button_area");
+        post_text=`"STEEL GRAND PRIX"でスコア: ${score}点を記録しました!\n`;
+        post_tags="denpasai\n,電波祭\n,電波祭2026\n,steel_grand_prix"
+        for (area of button_content) {
+            area.innerHTML=`
+                <div>
+                    <a href=".." class="to_ranking">
+                        <div>
+                            全体のランキング
+                        </div>
+                    </a>
+                    <a href="https://x.com/intent/post?text=${encodeURIComponent(post_text)}&hashtags=${encodeURIComponent(post_tags)}" class="to_post" target="_blank" rel="noopener noreferrer">
+                        <div>
+                            <img src="img/x_logo.svg">
+                            でポスト
+                        </div>
+                    </a>
+                </div>`
+        }
     </script>
     <script src="js/common.js"></script>
 </html>

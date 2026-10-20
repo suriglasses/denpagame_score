@@ -19,16 +19,16 @@
         function generate_rank_node(data,focus){
             node_id=""
             if(focus==true){
-                node_id="id=\"focus_node\""
+                node_id=" id=\"focus_node\""
             }
             node=`
-                <div class="rank_node" ${node_id}>
+                <div class="rank_node"${node_id} tabindex=0>
                     <div class="rank">
                         <div>
                             ${data["rank"]}
                         </div>
                     </div>
-                    <div class="name">
+                    <div class="name" tabindex=-1>
                         <div>
                             ${data["name"]}
                         </div>
@@ -44,16 +44,27 @@
         }
 
         async function ranking_get(date){
-            link="https://script.google.com/macros/s/AKfycbw2B5XZGTt90auW0d9Z_50qukCmcGyasME0ipnUYTbFFLNDgmQqOzXbGsPEP8lqaWwn6w/exec";
+            link="https://script.google.com/macros/s/AKfycbwo7B-bEYvn54qOjnajOfAO7sB57yn7hnvWuDRtkDzdS56Z2ABLrOl2WWGOziqwamSTBA/exec";
             if(date!=null){
                 link+=`?date=${date}`;
             }
-            data=await (await fetch(link)).json();
+            try{
+                data=await (await fetch(link)).json();
+            }catch(e){
+                document.getElementById("main_content").innerHTML=`
+                <dev id="loading_message" class="error">
+                    読み込みに失敗しました<br>
+                    再読み込みを<br>
+                    お試しください
+                </dev>
+                `;
+                console.error(e);
+            }
             return data;
         }
 
         async function add_score(name,score,date) {
-            data=await (await fetch("https://script.google.com/macros/s/AKfycbw2B5XZGTt90auW0d9Z_50qukCmcGyasME0ipnUYTbFFLNDgmQqOzXbGsPEP8lqaWwn6w/exec",{
+            data=await (await fetch("https://script.google.com/macros/s/AKfycbwo7B-bEYvn54qOjnajOfAO7sB57yn7hnvWuDRtkDzdS56Z2ABLrOl2WWGOziqwamSTBA/exec",{
                 "method":"POST",
                 "headers":{
                     "Accept": "text/plain",
@@ -67,12 +78,15 @@
         ranking_get(query.get("date")).then(ranking=>{
             document.getElementById("main_content").innerHTML="";
             if(ranking["error"]!=null){
+                console.log(`error: ${ranking["error"]}`);
                 document.getElementById("main_content").innerHTML="エラーが発生しました。"
             }else{
+                first=true;
                 for(data of ranking["value"]){
                     focus=false;
-                    if(data["name"]==query.get("name")){
+                    if(first&&data["name"]==query.get("name")&&data["score"]==parseInt(query.get("score"))){
                         focus=true;
+                        first=false;
                     }
                     generate_rank_node(data,focus);
                 }

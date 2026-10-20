@@ -15,7 +15,7 @@
     height: calc(100dvh - var(--score-area-height) - 2 * var(--score-area-margin) - var(--button-area-height) - var(--header-size));
 }
 
-#score{
+#score_area{
     position: relative;
     height: var(--score-area-height);
     margin: var(--score-area-margin);
@@ -32,11 +32,48 @@
     }
 }
 
-.button_area{
+.button_area>*{
+    display: flex;
     height: var(--button-area-height);
+    align-items: center;
+    justify-content: end;
+    gap: 0.5rem;
+    margin-right: var(--ranking-margin);
+    
+    a{
+        text-decoration-line: none;
+    }
+}
 
-    &>*{
-        margin: 0.5rem;
+.to_ranking{
+    display: block;
+    align-content: center;
+    justify-items: center;
+    background-color: gray;
+    color: white;
+    height: 2rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+}
+
+.to_post{
+    display: block;
+    align-content: center;
+    justify-items: center;
+    background-color: black;
+    color: white;
+    height: 2rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+
+    &>div{
+        display: flex;
+        align-items: end;
+
+        &>img{
+            display: block;
+            height: 1.5rem;
+        }
     }
 }
 
@@ -45,9 +82,10 @@
         display: flex;
     }
 
-    #score{
+    #score_area{
         width: var(--score-area-width);
         margin-right: 0;
+        margin-bottom: 0;
         padding-left: 4.5rem;
 
         &>.roundel{
@@ -60,5 +98,9 @@
         margin-top: var(--ranking-margin);
         margin-bottom: var(--ranking-margin);
         height: calc(100dvh - 2 * var(--ranking-margin) - var(--header-size));
+    }
+
+    .button_area>*{
+        margin-right: 0;
     }
 }
