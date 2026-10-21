@@ -79,9 +79,7 @@
         document.getElementById("user_score").innerHTML=`${score}`
         document.getElementById("ranking").src=link;
         button_content=document.getElementsByClassName("button_area");
-        post_text=`"STEEL GRAND PRIX"でスコア: ${score}点を記録しました!\n`;
-        post_link="https://denpasai.jp/booths/game-yuushiki-club"
-        post_tags="denpasai\n,電波祭\n,電波祭2026\n,steel_grand_prix"
+        post_text=`"STEEL GRAND PRIX"でスコア: ${score}点を記録しました!\nhttps://denpasai.jp/booths/game-yuushiki-club\n\n#denpasai\n#電波祭\n#電波祭2026\n#steel_grand_prix`;
         for (area of button_content) {
             area.innerHTML=`
                 <div>
@@ -90,7 +88,7 @@
                             全体のランキング
                         </div>
                     </a>
-                    <a href="https://x.com/intent/post?text=${encodeURIComponent(post_text)}&url=${encodeURIComponent(post_link)}&hashtags=${encodeURIComponent(post_tags)}" class="to_post" target="_blank" rel="noopener noreferrer">
+                    <a href="https://x.com/intent/post?text=${encodeURIComponent(post_text)}" class="to_post" target="_blank" rel="noopener noreferrer">
                         <div>
                             <img src="img/x_logo.svg">
                             でポスト
