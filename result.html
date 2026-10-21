@@ -18,25 +18,25 @@
                     <div id="score_content">
                         <div>
                             <div>
-                                <div id="tank_title">
-                                    <div class="title">
-                                        YOUR TANK
-                                    </div>
-                                </div>
-                                <div id="tank_name"></div>
-                            </div>
-                            <div>
                                 <div id="name_title">
                                     <div class="title">
-                                        NAME
+                                        Name
                                     </div>
                                 </div>
                                 <div id="user_name"></div>
                             </div>
                             <div>
+                                <div id="tank_title">
+                                    <div class="title">
+                                        Your Tank
+                                    </div>
+                                </div>
+                                <div id="tank_name"></div>
+                            </div>
+                            <div>
                                 <div id="score_title">
                                     <div class="title">
-                                        SCORE
+                                        Score
                                     </div>
                                 </div>
                                 <div id="user_score"></div>
@@ -63,8 +63,6 @@
             first=false;
             link+=`?date=${date}`
         }
-        tank=query.get("tank");
-        document.getElementById("score_area").style.setProperty("background-image",`url("img/tank/${tank}.png")`)
         user_name=query.get("name");
         if(user_name!=null){
             if(first){
@@ -75,6 +73,8 @@
             }
             link+=`name=${user_name}`;
         }
+        tank=query.get("tank");
+        document.getElementById("score_area").style.setProperty("background-image",`url("img/tank/${tank}.png")`)
         score=query.get("score");
         if(score!=null){
             if(first){
