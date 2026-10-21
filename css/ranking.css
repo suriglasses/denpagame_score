@@ -56,7 +56,6 @@ body{
     }
 
     &>.score{
-        width: 5rem;
         justify-items: right;
     }
 
