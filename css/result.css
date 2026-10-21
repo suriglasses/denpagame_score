@@ -1,6 +1,6 @@
 :root{
     --ranking-margin: 2rem;
-    --score-area-width: 20rem;
+    --score-area-width: 30rem;
     --score-area-height: 15rem;
     --score-area-margin: 2rem;
     --button-area-height: 3rem;
@@ -24,7 +24,11 @@
     position: relative;
     height: var(--score-area-height);
     margin: var(--score-area-margin);
+    margin-bottom: 1rem;
     background-color: beige;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
 
     &>.roundel{
         display: block;
@@ -33,10 +37,6 @@
         position: absolute;
         top: -1rem;
         left: -1rem;
-    }
-
-    &>div{
-        justify-items: center;
     }
 }
 
@@ -47,7 +47,6 @@
     text-wrap: nowrap;
     overflow-x: auto;
     align-content: center;
-    padding-top: 2.5rem;
 
     &>div{
         width: fit-content;
@@ -55,12 +54,12 @@
     }
 }
 
-#name_title,#score_title{
+#tank_title,#name_title,#score_title{
     display: flex;
     flex-shrink: 0;
 
     &>.title{
-        width: calc(4 * var(--score-font-size));
+        width: calc(6 * var(--score-font-size));
     }
 
     &::after{
@@ -122,10 +121,6 @@
         width: var(--score-area-width);
         margin-right: 0;
         margin-bottom: 0;
-
-        &>div{
-            padding-top: 3.5rem;
-        }
 
         &>.roundel{
             width: 5rem;

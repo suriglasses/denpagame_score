@@ -14,13 +14,21 @@
         <div id="main_content">
             <div>
                 <div id="score_area">
-                    <img class="roundel" src="img/roundel.png">
+                    <!-- <img class="roundel" src="img/roundel.png"> -->
                     <div id="score_content">
                         <div>
                             <div>
+                                <div id="tank_title">
+                                    <div class="title">
+                                        YOUR TANK
+                                    </div>
+                                </div>
+                                <div id="tank_name"></div>
+                            </div>
+                            <div>
                                 <div id="name_title">
                                     <div class="title">
-                                        name
+                                        NAME
                                     </div>
                                 </div>
                                 <div id="user_name"></div>
@@ -28,7 +36,7 @@
                             <div>
                                 <div id="score_title">
                                     <div class="title">
-                                        score
+                                        SCORE
                                     </div>
                                 </div>
                                 <div id="user_score"></div>
@@ -55,6 +63,8 @@
             first=false;
             link+=`?date=${date}`
         }
+        tank=query.get("tank");
+        document.getElementById("score_area").style.setProperty("background-image",`url("img/tank/${tank}.png")`)
         user_name=query.get("name");
         if(user_name!=null){
             if(first){
@@ -75,11 +85,12 @@
             }
             link+=`score=${score}`;
         }
+        document.getElementById("tank_name").innerHTML=`${tank}`
         document.getElementById("user_name").innerHTML=`${user_name}`
         document.getElementById("user_score").innerHTML=`${score}`
         document.getElementById("ranking").src=link;
         button_content=document.getElementsByClassName("button_area");
-        post_text=`"STEEL GRAND PRIX"でスコア: ${score}点を記録しました!\nhttps://denpasai.jp/booths/game-yuushiki-club\n\n#denpasai\n#電波祭\n#電波祭2026\n#steel_grand_prix`;
+        post_text=`"STEEL GRAND PRIX"で戦車"${tank}"を使用してスコア: ${score}点を記録しました!\nhttps://denpasai.jp/booths/game-yuushiki-club\n\n#denpasai\n#電波祭\n#電波祭2026\n#steel_grand_prix`;
         for (area of button_content) {
             area.innerHTML=`
                 <div>
