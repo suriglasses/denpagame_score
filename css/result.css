@@ -4,6 +4,7 @@
     --score-area-height: 15rem;
     --score-area-margin: 2rem;
     --button-area-height: 3rem;
+    --score-font-size: 1.75rem;
 }
 
 *:has(#ranking){
@@ -23,7 +24,6 @@
     position: relative;
     height: var(--score-area-height);
     margin: var(--score-area-margin);
-    padding-left: 3.5rem;
     background-color: beige;
 
     &>.roundel{
@@ -33,6 +33,38 @@
         position: absolute;
         top: -1rem;
         left: -1rem;
+    }
+
+    &>div{
+        justify-items: center;
+    }
+}
+
+#score_content{
+    display: block;
+    height: stretch;
+    font-size: var(--score-font-size);
+    text-wrap: nowrap;
+    overflow-x: auto;
+    align-content: center;
+    padding-top: 2.5rem;
+
+    &>div{
+        width: fit-content;
+        padding-left: 1rem;
+    }
+}
+
+#name_title,#score_title{
+    display: flex;
+    flex-shrink: 0;
+
+    &>.title{
+        width: calc(4 * var(--score-font-size));
+    }
+
+    &::after{
+        content: ":\000A0";
     }
 }
 
@@ -90,12 +122,19 @@
         width: var(--score-area-width);
         margin-right: 0;
         margin-bottom: 0;
-        padding-left: 4.5rem;
+
+        &>div{
+            padding-top: 3.5rem;
+        }
 
         &>.roundel{
             width: 5rem;
             height: 5rem;
         }
+    }
+
+    #score_content>div>div{
+        display: flex;
     }
 
     #ranking{

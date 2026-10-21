@@ -15,8 +15,25 @@
             <div>
                 <div id="score_area">
                     <img class="roundel" src="img/roundel.png">
-                    <div id="score">
-                        test
+                    <div id="score_content">
+                        <div>
+                            <div>
+                                <div id="name_title">
+                                    <div class="title">
+                                        name
+                                    </div>
+                                </div>
+                                <div id="user_name"></div>
+                            </div>
+                            <div>
+                                <div id="score_title">
+                                    <div class="title">
+                                        score
+                                    </div>
+                                </div>
+                                <div id="user_score"></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="pc_visible button_area">
@@ -58,7 +75,8 @@
             }
             link+=`score=${score}`;
         }
-        document.getElementById("score").innerHTML=`name: ${user_name}<br>score: ${score}`
+        document.getElementById("user_name").innerHTML=`${user_name}`
+        document.getElementById("user_score").innerHTML=`${score}`
         document.getElementById("ranking").src=link;
         button_content=document.getElementsByClassName("button_area");
         post_text=`"STEEL GRAND PRIX"でスコア: ${score}点を記録しました!\n`;
