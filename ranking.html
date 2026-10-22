@@ -23,8 +23,18 @@
                 node_id=" id=\"focus_node\""
             }
             champ_node=""
-            if(data["rank"]==1){
-                champ_node=" champ_node"
+            switch(data["rank"]){
+                case 1:
+                    champ_node=" champ_node"
+                    break;
+
+                case 2:
+                    champ_node=" second_node"
+                    break;
+                
+                case 3:
+                    champ_node=" therd_node"
+                    break;
             }
             node=`
                 <div class="rank_node${champ_node}"${node_id} tabindex=0>

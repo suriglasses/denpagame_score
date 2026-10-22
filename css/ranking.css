@@ -76,14 +76,22 @@ body{
     color: white;
 }
 
-.champ_node>.rank{
-    background-image: url("../img/favicon.ico");
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    &>*{
-        visibility: hidden;
-    }
+.champ_node{
+    --base-color: rgb(237, 199, 9);
+    --shadow-color: rgb(62, 38, 1);
+    --light-color: rgb(255, 253, 113);
+}
+
+.second_node{
+    --base-color: rgb(115, 129, 137);
+    --shadow-color: rgb(26, 35, 44);
+    --light-color: rgb(200, 233, 255);
+}
+
+.therd_node{
+    --base-color: rgb(200, 97, 24);
+    --shadow-color: rgb(62, 38, 1);
+    --light-color: rgb(255, 189, 113);
 }
 
 .in_window{
