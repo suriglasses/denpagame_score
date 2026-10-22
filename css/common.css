@@ -1,6 +1,7 @@
 @font-face {
     font-family: "DSEG7Classic-Regular";
     src: url(../font/DSEG/DSEG7Classic-Regular.woff2) format("woff2");
+    unicode-range: U+0030-0039;
 }
 
 @font-face {
@@ -11,11 +12,7 @@
 :root{
     --header-size: 4rem;
     background-image: url("../img/background.jpg");
-    font-family: "Makinas-4-Square", "DSEG7Classic-Regular";
-}
-
-*.num_font{
-    font-family: "DSEG7Classic-Regular";
+    font-family: "DSEG7Classic-Regular","Makinas-4-Square";
 }
 
 body{

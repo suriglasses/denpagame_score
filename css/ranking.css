@@ -65,6 +65,7 @@ body{
         padding-right: 0.5rem;
         text-wrap: nowrap;
         overflow-x: auto;
+        overflow-y: visible;
         scrollbar-width: none;
     }
 }
