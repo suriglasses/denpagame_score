@@ -29,15 +29,6 @@
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-
-    &>.roundel{
-        display: block;
-        height: 4rem;
-        width: 4rem;
-        position: absolute;
-        top: -1rem;
-        left: -1rem;
-    }
 }
 
 #score_content{
