@@ -22,8 +22,12 @@
             if(focus==true){
                 node_id=" id=\"focus_node\""
             }
+            champ_node=""
+            if(data["rank"]==1){
+                champ_node=" champ_node"
+            }
             node=`
-                <div class="rank_node"${node_id} tabindex=0>
+                <div class="rank_node${champ_node}"${node_id} tabindex=0>
                     <div class="rank">
                         <div>
                             ${data["rank"]}
