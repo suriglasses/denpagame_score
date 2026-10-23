@@ -58,10 +58,10 @@
             document.getElementById("main_content").innerHTML+=node;
         }
 
-        async function ranking_get(date){
+        async function ranking_get(tank){
             link="https://script.google.com/macros/s/AKfycbwo7B-bEYvn54qOjnajOfAO7sB57yn7hnvWuDRtkDzdS56Z2ABLrOl2WWGOziqwamSTBA/exec";
-            if(date!=null){
-                link+=`?date=${date}`;
+            if(tank!=null){
+                link+=`?tank=${tank}`;
             }
             try{
                 data=await (await fetch(link)).json();
@@ -78,19 +78,19 @@
             return data;
         }
 
-        async function add_score(name,score,date) {
+        async function add_score(name,score,tank) {
             data=await (await fetch("https://script.google.com/macros/s/AKfycbwo7B-bEYvn54qOjnajOfAO7sB57yn7hnvWuDRtkDzdS56Z2ABLrOl2WWGOziqwamSTBA/exec",{
                 "method":"POST",
                 "headers":{
                     "Accept": "text/plain",
                     "Content-Type":"text/plain"
                 },
-                "body":JSON.stringify({"score":score,"name":name,"date":date})
+                "body":JSON.stringify({"score":score,"name":name,"tank":tank})
             })).json();
         }
 
         query=new URLSearchParams(window.location.search);
-        ranking_get(query.get("date")).then(ranking=>{
+        ranking_get(query.get("tank")).then(ranking=>{
             document.getElementById("main_content").innerHTML="";
             if(ranking["error"]!=null){
                 console.log(`error: ${ranking["error"]}`);

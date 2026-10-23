@@ -2,9 +2,21 @@
     --ranking-margin: 2rem;
 }
 
-#ranking{
+#main_content{
     margin: var(--ranking-margin);
+}
+
+#ranking_title{
+    height: 2rem;
+    padding-left: 1rem;
+    width: stretch;
+    align-content: center;
+    background-color: black;
+    color: white;
+}
+
+#ranking{
     border: 0;
     width: stretch;
-    height: calc(100dvh - 2 * var(--ranking-margin) - var(--header-size));
+    height: calc(100dvh - 2 * var(--ranking-margin) - var(--header-size) - 2rem);
 }
