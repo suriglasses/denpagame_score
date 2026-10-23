@@ -58,11 +58,21 @@
         query=new URLSearchParams(window.location.search);
         link="ranking.html";
         first=true;
+        target_tank=query.get("target_tank");
+        if(target_tank!=null){
+            first=false;
+            link+=`?target_tank=${target_tank}`
+        }
         tank=query.get("tank");
         if(tank!=null){
-            first=false;
+            if(first){
+                first=false;
+                link+="?"
+            }else{
+                link+="&"
+            }
             link+=`?tank=${tank}`
-            document.getElementById("score_area").style.setProperty("background-image",`url("img/tank/${tank}.png")`)
+            // document.getElementById("score_area").style.setProperty("background-image",`url("img/tank/${tank}.png")`)
         }
         user_name=query.get("name");
         if(user_name!=null){
@@ -77,8 +87,8 @@
         hit=query.get("hit");
         time=query.get("time");
         score=0
-        if(hit!=null&&time!=null){
-            score=score_value(parseInt(hit),parseInt(time));
+        if(tank!=null&&hit!=null&&time!=null){
+            score=score_value(tank,parseInt(hit),parseInt(time));
             if(first){
                 first=false;
                 link+="?"
@@ -96,7 +106,7 @@
         for (area of button_content) {
             area.innerHTML=`
                 <div>
-                    <a href="index.html?name=${user_name}&score=${score}" class="to_ranking">
+                    <a href="index.html?tank=${tank}&name=${user_name}&hit=${hit}&time=${time}" class="to_ranking">
                         <div>
                             全体のランキング
                         </div>

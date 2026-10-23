@@ -51,7 +51,7 @@
                     </div>
                     <div class="score">
                         <div>
-                            ${data["score"]}
+                            ${score_value(data["tank"],data["hit"],data["time"])}
                         </div>
                     </div>
                 </div>
@@ -59,10 +59,10 @@
             document.getElementById("main_content").innerHTML+=node;
         }
 
-        async function ranking_get(tank){
+        async function ranking_get(target_tank){
             link="https://script.google.com/macros/s/AKfycbwo7B-bEYvn54qOjnajOfAO7sB57yn7hnvWuDRtkDzdS56Z2ABLrOl2WWGOziqwamSTBA/exec";
-            if(tank!=null){
-                link+=`?tank=${tank}`;
+            if(target_tank!=null){
+                link+=`?target_tank=${target_tank}`;
             }
             try{
                 data=await (await fetch(link)).json();
@@ -80,21 +80,23 @@
         }
 
         query=new URLSearchParams(window.location.search);
-        ranking_get(query.get("tank")).then(ranking=>{
+        ranking_get(query.get("target_tank")).then(ranking=>{
             document.getElementById("main_content").innerHTML="";
             if(ranking["error"]!=null){
                 console.log(`error: ${ranking["error"]}`);
                 document.getElementById("main_content").innerHTML="エラーが発生しました。"
             }else{
+                tank=query.get("tank")
                 hit=query.get("hit");
                 time=query.get("time");
-                if(hit!=null&&time!=null){
-                    score=score_value(parseInt(hit),parseInt(time));
+                score=null;
+                if(tank!=null&&hit!=null&&time!=null){
+                    score=score_value(tank,parseInt(hit),parseInt(time));
                 }
                 first=true;
                 for(data of ranking["value"]){
                     focus=false;
-                    if(first&&data["name"]==query.get("name")&&data["score"]==score){
+                    if(first&&data["name"]==query.get("name")&&score_value(data["tank"],data["hit"],data["time"])==score){
                         focus=true;
                         first=false;
                     }

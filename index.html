@@ -20,7 +20,7 @@
     </body>
     <script>
         query=new URLSearchParams(window.location.search);
-        document.getElementById("ranking").src=`ranking.html?name=${query.get("name")}&score=${query.get("score")}`
+        document.getElementById("ranking").src=`ranking.html?tank=${query.get("tank")}&name=${query.get("name")}&hit=${query.get("hit")}&time=${query.get("time")}`
     </script>
     <script src="js/common.js"></script>
 </html>
