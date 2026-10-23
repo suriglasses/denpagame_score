@@ -79,17 +79,6 @@
             return data;
         }
 
-        async function add_score(name,score,tank) {
-            data=await (await fetch("https://script.google.com/macros/s/AKfycbwo7B-bEYvn54qOjnajOfAO7sB57yn7hnvWuDRtkDzdS56Z2ABLrOl2WWGOziqwamSTBA/exec",{
-                "method":"POST",
-                "headers":{
-                    "Accept": "text/plain",
-                    "Content-Type":"text/plain"
-                },
-                "body":JSON.stringify({"score":score,"name":name,"tank":tank})
-            })).json();
-        }
-
         query=new URLSearchParams(window.location.search);
         ranking_get(query.get("tank")).then(ranking=>{
             document.getElementById("main_content").innerHTML="";
