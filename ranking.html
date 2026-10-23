@@ -16,6 +16,7 @@
             </dev>
         </div>
     </body>
+    <script src="js/common.js"></script>
     <script>
         function generate_rank_node(data,focus){
             node_id=""
@@ -96,10 +97,15 @@
                 console.log(`error: ${ranking["error"]}`);
                 document.getElementById("main_content").innerHTML="エラーが発生しました。"
             }else{
+                hit=query.get("hit");
+                time=query.get("time");
+                if(hit!=null&&time!=null){
+                    score=score_value(parseInt(hit),parseInt(time));
+                }
                 first=true;
                 for(data of ranking["value"]){
                     focus=false;
-                    if(first&&data["name"]==query.get("name")&&data["score"]==parseInt(query.get("score"))){
+                    if(first&&data["name"]==query.get("name")&&data["score"]==score){
                         focus=true;
                         first=false;
                     }

@@ -53,6 +53,7 @@
             </div>
         </div>
     </body>
+    <script src="js/common.js"></script>
     <script>
         query=new URLSearchParams(window.location.search);
         link="ranking.html";
@@ -73,15 +74,17 @@
             }
             link+=`name=${user_name}`;
         }
-        score=query.get("score");
-        if(score!=null){
+        hit=query.get("hit");
+        time=query.get("time");
+        if(hit!=null&&time!=null){
+            score=score_value(parseInt(hit),parseInt(time));
             if(first){
                 first=false;
                 link+="?"
             }else{
                 link+="&"
             }
-            link+=`score=${score}`;
+            link+=`hit=${hit}&time=${time}`;
         }
         document.getElementById("tank_name").innerHTML=`${tank}`
         document.getElementById("user_name").innerHTML=`${user_name}`
@@ -106,5 +109,4 @@
                 </div>`
         }
     </script>
-    <script src="js/common.js"></script>
 </html>
