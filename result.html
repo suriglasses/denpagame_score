@@ -76,6 +76,7 @@
         }
         hit=query.get("hit");
         time=query.get("time");
+        score=0
         if(hit!=null&&time!=null){
             score=score_value(parseInt(hit),parseInt(time));
             if(first){
