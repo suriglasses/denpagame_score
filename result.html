@@ -71,7 +71,7 @@
             }else{
                 link+="&"
             }
-            link+=`?tank=${tank}`
+            link+=`tank=${tank}`
             // document.getElementById("score_area").style.setProperty("background-image",`url("img/tank/${tank}.png")`)
         }
         user_name=query.get("name");
@@ -86,7 +86,7 @@
         }
         hit=query.get("hit");
         time=query.get("time");
-        score=0
+        score=null
         if(tank!=null&&hit!=null&&time!=null){
             score=score_value(tank,parseInt(hit),parseInt(time));
             if(first){
