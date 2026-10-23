@@ -4,6 +4,6 @@ fetch("header.html").then(response=>{
     document.getElementById("header").innerHTML=text;
 });
 
-function score_value(hit,time){//(120[秒]-かかった時間)*的へのヒット数
-  return (120-time)*hit;
+function score_value(hit,time){//(120000[ミリ秒]-かかった時間+1)*的へのヒット数
+  return (120000-time+1)*hit;
 }
